@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import * as types from './actionTypes';
 import Immutable from 'seamless-immutable';
 
@@ -15,4 +16,13 @@ export default function reduce(state = initialState, action = {}) {
     default:
       return state;
   }
+}
+
+// selectors
+export function getTopicsByUrl(state) {
+  return state.topics.topicsByUrl;
+}
+
+export function getTopicsUrlArray(state) {
+  return _.keys(state.topics.topicsByUrl);
 }
